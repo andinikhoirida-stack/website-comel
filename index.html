@@ -2,35 +2,38 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cincau Coffee - Cappucino Cincau Kekinian</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Es Teller Nusantara - Segarnya Bikin Nagih!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-:root {
-  --cream: #F5EBE0;
-  --beige: #E3D5CA;
-  --pink-beige: #D5BDAF;
-  --caramel: #A98467;
-  --coffee: #6F4E37;
-  --dark: #4A342A;
-  --soft: #FAF3E7;
-  --shadow: 0 10px 30px rgba(111,78,55,.15);
-}
+        :root {
+            --primary: #ff6b35;
+            --secondary: #ffd166;
+            --accent: #06d6a0;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+            --text: #333333;
+            --text-light: #666666;
+        }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-html { scroll-behavior: smooth; }
-body {
-  background: var(--soft);
-  color: var(--dark);
-  line-height: 1.6;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text);
+            overflow-x: hidden;
+        }
 
 /* NAVBAR */
 nav {
@@ -467,27 +470,347 @@ footer {
   <button class="menu-toggle" onclick="document.getElementById('navMenu').classList.toggle('active')">☰</button>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-text">
-    <span class="tag">✨ MINUMAN KEKINIAN</span>
+    <!-- HERO SECTION -->
+    <section class="hero" id="beranda">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">🥥 #1 Es Teller Terlaris di Kota</div>
+                <h1>Segarnya <span class="highlight">Es Teller</span> Bikin Hari Lebih Ceria!</h1>
+                <p>Nikmati kesegaran es teller dengan bahan-bahan pilihan terbaik. Perpaduan kelapa muda, alpukat, nangka, dan cincau dalam kuah santan manis yang bikin ketagihan!</p>
+                <div class="hero-buttons">
+                    <a href="#produk" class="btn-primary"><i class="fas fa-shopping-bag"></i> Lihat Menu</a>
+                    <a href="#keunggulan" class="btn-secondary"><i class="fas fa-play-circle"></i> Pelajari Lebih</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <h3>10K+</h3>
+                        <p>Pelanggan Puas</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>15+</h3>
+                        <p>Varian Rasa</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>4.9</h3>
+                        <p>Rating Bintang</p>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-container">
+                    <img src="https://images.unsplash.com/photo-1546173159-315724a31696?w=500&h=500&fit=crop" alt="Es Teller Segar" onerror="this.src='https://via.placeholder.com/450x450/ff6b35/ffffff?text=Es+Teller'">
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <h1>Nikmati Segarnya <span>Cappucino Cincau</span> Dalam Setiap Tegukan</h1>
+    <!-- KEUNGGULAN SECTION -->
+    <section class="section keunggulan" id="keunggulan">
+        <div class="section-header reveal">
+            <p class="subtitle">Mengapa Memilih Kami</p>
+            <h2>Keunggulan Es Teller Kami</h2>
+            <p>Kami berkomitmen menghadirkan es teller terbaik dengan kualitas premium yang tak tertandingi</p>
+        </div>
+        <div class="keunggulan-grid">
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3>100% Bahan Alami</h3>
+                <p>Menggunakan bahan-bahan segar dan alami tanpa pengawet buatan. Buah-buahan dipilih langsung dari petani lokal terbaik.</p>
+            </div>
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-award"></i>
+                </div>
+                <h3>Resep Turun Temurun</h3>
+                <p>Resep warisan keluarga yang telah disempurnakan selama 3 generasi, menghadirkan cita rasa otentik yang khas.</p>
+            </div>
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>Selalu Segar</h3>
+                <p>Dibuat fresh setiap hari dengan es batu kristal premium. Dijamin segar dari pertama tegukan sampai tetes terakhir.</p>
+            </div>
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3>Higienis & Halal</h3>
+                <p>Diproses dengan standar kebersihan tinggi dan sudah tersertifikasi halal MUI. Aman untuk seluruh keluarga.</p>
+            </div>
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <h3>Delivery Cepat</h3>
+                <p>Layanan antar cepat dalam kota. Es teller sampai dalam kondisi segar dan dingin sempurna di depan pintu Anda.</p>
+            </div>
+            <div class="keunggulan-card reveal">
+                <div class="keunggulan-icon">
+                    <i class="fas fa-tags"></i>
+                </div>
+                <h3>Harga Terjangkau</h3>
+                <p>Kualitas premium dengan harga yang ramah di kantong. Tersedia berbagai paket hemat untuk keluarga dan acara.</p>
+            </div>
+        </div>
+    </section>
 
-    <p>
-      creamy kopinya,kenyal cincaunya, bikin nagih rasanya!
-      teman terbaik untuk menemani setiap aktivitasmu
-    </p>
+    <!-- PRODUK SECTION -->
+    <section class="section produk" id="produk">
+        <div class="section-header reveal">
+            <p class="subtitle">Menu Favorit</p>
+            <h2>Produk Kami</h2>
+            <p>Pilihan varian es teller yang siap memanjakan lidah Anda dengan kesegaran luar biasa</p>
+        </div>
+        <div class="produk-grid">
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1553530665-befa15479854?w=400&h=300&fit=crop" alt="Es Teller Original" onerror="this.src='https://via.placeholder.com/400x300/ff6b35/ffffff?text=Es+Teller+Original'">
+                    <span class="produk-badge">Best Seller</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Es Teller Original</h3>
+                    <p>Perpaduan sempurna kelapa muda, alpukat, nangka, cincau, dan kolang-kaling dengan kuah santan manis.</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 15.000 <small>/porsi</small></span>
+                        <button class="btn-order" onclick="orderNow('Es Teller Original')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?w=400&h=300&fit=crop" alt="Es Teller Durian" onerror="this.src='https://via.placeholder.com/400x300/ffd166/333333?text=Es+Teller+Durian'">
+                    <span class="produk-badge">New</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Es Teller Durian</h3>
+                    <p>Varian spesial dengan tambahan daging durian Monthong premium yang legit dan creamy. Sensasi rasa mewah!</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 25.000 <small>/porsi</small></span>
+                        <button class="btn-order" onclick="orderNow('Es Teller Durian')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?w=400&h=300&fit=crop" alt="Es Teller Jumbo" onerror="this.src='https://via.placeholder.com/400x300/06d6a0/ffffff?text=Es+Teller+Jumbo'">
+                    <span class="produk-badge">Jumbo</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Es Teller Jumbo</h3>
+                    <p>Porsi jumbo dengan topping melimpah! Cocok untuk sharing atau dinikmati sendiri bagi yang super haus.</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 20.000 <small>/porsi</small></span>
+                        <button class="btn-order" onclick="orderNow('Es Teller Jumbo')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1590080875515-8a12ee1e1707?w=400&h=300&fit=crop" alt="Es Teller Mango" onerror="this.src='https://via.placeholder.com/400x300/ffa62b/ffffff?text=Es+Teller+Mango'">
+                    <span class="produk-badge">Favorit</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Es Teller Mangga</h3>
+                    <p>Fusi tropis dengan potongan mangga harum manis yang matang sempurna. Segar dan manis alami!</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 18.000 <small>/porsi</small></span>
+                        <button class="btn-order" onclick="orderNow('Es Teller Mangga')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1570586437263-ab629fccc51c?w=400&h=300&fit=crop" alt="Es Teller Paket Family" onerror="this.src='https://via.placeholder.com/400x300/1a1a2e/ffffff?text=Paket+Family'">
+                    <span class="produk-badge">Hemat</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Paket Family</h3>
+                    <p>Paket hemat berisi 5 porsi es teller dengan 2 topping ekstra. Sempurna untuk acara keluarga dan kumpul bersama.</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 60.000 <small>/paket</small></span>
+                        <button class="btn-order" onclick="orderNow('Paket Family')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+            <div class="produk-card reveal">
+                <div class="produk-img">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&h=300&fit=crop" alt="Es Teller Catering" onerror="this.src='https://via.placeholder.com/400x300/ff6b35/ffffff?text=Catering+Special'">
+                    <span class="produk-badge">Catering</span>
+                </div>
+                <div class="produk-info">
+                    <h3>Catering Special</h3>
+                    <p>Layanan catering untuk acara pernikahan, ulang tahun, gathering, dan berbagai event. Minimum 50 porsi.</p>
+                    <div class="produk-footer">
+                        <span class="produk-price">Rp 12.000 <small>/porsi</small></span>
+                        <button class="btn-order" onclick="orderNow('Catering Special')">Pesan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <a href="#products" class="btn btn-primary">Pesan Sekarang</a>
-    <a href="#about" class="btn btn-outline">tentang capcin </a>
-  </div>
+    <!-- TESTIMONI SECTION -->
+    <section class="section testimoni" id="testimoni">
+        <div class="section-header reveal">
+            <p class="subtitle">Apa Kata Mereka</p>
+            <h2>Testimoni Pelanggan</h2>
+            <p>Ribuan pelanggan telah merasakan kesegaran es teller kami. Ini cerita mereka!</p>
+        </div>
+        <div class="testimoni-slider reveal">
+            <div class="testimoni-track" id="testimoniTrack">
+                <div class="testimoni-card">
+                    <div class="testimoni-img">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop" alt="Sarah" onerror="this.src='https://via.placeholder.com/200x200/ff6b35/ffffff?text=S'">
+                    </div>
+                    <div class="testimoni-content">
+                        <div class="testimoni-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote>"Es teller paling enak yang pernah saya coba! Buahnya segar banget, santannya pas, dan porsinya generous. Sekarang jadi langganan keluarga saya setiap weekend. Recommended banget!"</blockquote>
+                        <div class="testimoni-author">
+                            <h4>Sarah Amelia</h4>
+                            <p>Pelanggan Setia sejak 2022</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimoni-card">
+                    <div class="testimoni-img">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop" alt="Budi" onerror="this.src='https://via.placeholder.com/200x200/ffd166/333333?text=B'">
+                    </div>
+                    <div class="testimoni-content">
+                        <div class="testimoni-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote>"Saya pesan catering untuk acara kantor 100 porsi dan semua tamu puas! Pelayanannya cepat, rasanya konsisten enak, dan harganya sangat reasonable. Pasti order lagi untuk event berikutnya!"</blockquote>
+                        <div class="testimoni-author">
+                            <h4>Budi Santoso</h4>
+                            <p>Corporate Client</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimoni-card">
+                    <div class="testimoni-img">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop" alt="Dina" onerror="this.src='https://via.placeholder.com/200x200/06d6a0/ffffff?text=D'">
+                    </div>
+                    <div class="testimoni-content">
+                        <div class="testimoni-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <blockquote>"Es Teller Durian-nya luar biasa! Durian-nya beneran premium, creamy dan manisnya pas. Delivery-nya juga cepat, sampai masih dingin sempurna. 10/10 deh pokoknya!"</blockquote>
+                        <div class="testimoni-author">
+                            <h4>Dina Kartika</h4>
+                            <p>Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimoni-controls">
+                <button class="testimoni-btn" onclick="prevTestimoni()"><i class="fas fa-chevron-left"></i></button>
+                <button class="testimoni-btn" onclick="nextTestimoni()"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="testimoni-dots" id="testimoniDots">
+                <span class="dot active" onclick="goToTestimoni(0)"></span>
+                <span class="dot" onclick="goToTestimoni(1)"></span>
+                <span class="dot" onclick="goToTestimoni(2)"></span>
+            </div>
+        </div>
+    </section>
 
-  <div class="hero-img">
-    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=800"
-    alt="Cappucino Cincau">
-  </div>
-</section>
+    <!-- KONTAK SECTION -->
+    <section class="section kontak" id="kontak">
+        <div class="section-header reveal">
+            <p class="subtitle">Hubungi Kami</p>
+            <h2>Pesan & Tanyakan</h2>
+            <p>Kami siap melayani pesanan dan pertanyaan Anda. Jangan ragu untuk menghubungi kami!</p>
+        </div>
+        <div class="kontak-container reveal">
+            <div class="kontak-info">
+                <h3>Mari Terhubung!</h3>
+                <p>Punya pertanyaan atau ingin memesan dalam jumlah besar? Tim kami siap membantu Anda 24/7. Hubungi kami melalui channel berikut atau isi form di samping.</p>
+                <div class="kontak-item">
+                    <div class="kontak-item-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="kontak-item-text">
+                        <h4>Alamat</h4>
+                        <p>Jl. Segar Raya No. 88, Jakarta Selatan, 12345</p>
+                    </div>
+                </div>
+                <div class="kontak-item">
+                    <div class="kontak-item-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <div class="kontak-item-text">
+                        <h4>Telepon</h4>
+                        <p>+62 812-3456-7890</p>
+                    </div>
+                </div>
+                <div class="kontak-item">
+                    <div class="kontak-item-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="kontak-item-text">
+                        <h4>Email</h4>
+                        <p>info@estellernusantara.com</p>
+                    </div>
+                </div>
+                <div class="kontak-item">
+                    <div class="kontak-item-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="kontak-item-text">
+                        <h4>Jam Operasional</h4>
+                        <p>Senin - Minggu: 08.00 - 22.00 WIB</p>
+                    </div>
+                </div>
+                <div class="kontak-social">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="kontak-form">
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Masukkan email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">No. Telepon</label>
+                        <input type="tel" id="phone" placeholder="Masukkan nomor telepon" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesan">Pesan</label>
+                        <textarea id="pesan" placeholder="Tulis pesan atau pesanan Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
