@@ -1,0 +1,706 @@
+from pathlib import Path
+
+html = r'''
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bakso Ndin - bakso hangat, lezat, dan dibuat dari bahan pilihan.">
+    <title>Bakso| Hangatnya Bikin Rindu</title>
+    <style>
+        :root {
+            --red: #a92d24;
+            --red-dark: #762019;
+            --cream: #fff8ed;
+            --gold: #e6a23c;
+            --ink: #29231f;
+            --muted: #756b63;
+            --white: #fff;
+            --shadow: 0 12px 35px rgba(65, 35, 20, .10);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: rgba(255, 248, 237, .96);
+            border-bottom: 1px solid rgba(118, 32, 25, .10);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-inner {
+            min-height: 74px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            color: var(--red);
+            font-size: 1.45rem;
+            font-weight: 900;
+            letter-spacing: .5px;
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: .94rem;
+            font-weight: 700;
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--red);
+        }
+
+        .nav-cta,
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 0;
+            border-radius: 999px;
+            padding: 12px 22px;
+            background: var(--red);
+            color: var(--white);
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform .2s, background .2s;
+        }
+
+        .nav-cta:hover,
+        .btn:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            border: 0;
+            background: none;
+            font-size: 1.7rem;
+            cursor: pointer;
+            color: var(--red);
+        }
+
+        .hero {
+            padding: 76px 0 84px;
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .eyebrow {
+            color: var(--red);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: .78rem;
+        }
+
+        h1 {
+            font-size: clamp(2.7rem, 5vw, 4.7rem);
+            line-height: 1.08;
+            margin: 15px 0 20px;
+        }
+
+        h1 span {
+            color: var(--red);
+        }
+
+        .hero p {
+            color: var(--muted);
+            max-width: 520px;
+            font-size: 1.08rem;
+            margin-bottom: 28px;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .text-link {
+            color: var(--red);
+            font-weight: 800;
+        }
+
+        .hero-photo {
+            position: relative;
+        }
+
+        .hero-photo img {
+            height: 440px;
+            border-radius: 48% 48% 24px 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .photo-note {
+            position: absolute;
+            left: -25px;
+            bottom: 25px;
+            background: var(--white);
+            padding: 15px 20px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            font-weight: 800;
+        }
+
+        .photo-note strong {
+            color: var(--red);
+            display: block;
+            font-size: 1.25rem;
+        }
+
+        section {
+            padding: 78px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 42px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin: 8px 0 10px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .features {
+            background: #fff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .feature-card {
+            padding: 28px 24px;
+            border-radius: 20px;
+            background: var(--cream);
+            text-align: center;
+        }
+
+        .feature-icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: .95rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .product-card img {
+            height: 220px;
+        }
+
+        .product-info {
+            padding: 21px;
+        }
+
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .product-info p {
+            color: var(--muted);
+            font-size: .93rem;
+            min-height: 48px;
+        }
+
+        .product-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .price {
+            color: var(--red);
+            font-weight: 900;
+        }
+
+        .small-btn {
+            padding: 9px 15px;
+            font-size: .85rem;
+        }
+
+        .testimonials {
+            background: #fff;
+        }
+
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .review {
+            background: var(--cream);
+            padding: 25px;
+            border-radius: 18px;
+        }
+
+        .stars {
+            color: var(--gold);
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .review p {
+            color: #554b44;
+            margin-bottom: 17px;
+        }
+
+        .review strong {
+            color: var(--red-dark);
+        }
+
+        .contact {
+            background: var(--red-dark);
+            color: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 45px;
+            align-items: center;
+        }
+
+        .contact h2 {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            margin: 8px 0 15px;
+        }
+
+        .contact p {
+            color: #f3dcd4;
+        }
+
+        .contact-links {
+            display: grid;
+            gap: 14px;
+            margin-top: 22px;
+        }
+
+        .contact-links a {
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, .10);
+            padding: 28px;
+            border: 1px solid rgba(255, 255, 255, .18);
+            border-radius: 20px;
+        }
+
+        .contact-box h3 {
+            margin-bottom: 10px;
+        }
+
+        .contact-box .btn {
+            background: var(--gold);
+            color: #352315;
+            margin-top: 18px;
+        }
+
+        footer {
+            background: #451713;
+            color: #f4ddd5;
+            padding: 22px 0;
+            text-align: center;
+            font-size: .9rem;
+        }
+
+        @media (max-width: 800px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 74px;
+                left: 0;
+                right: 0;
+                padding: 22px 5%;
+                background: var(--cream);
+                flex-direction: column;
+                align-items: flex-start;
+                box-shadow: var(--shadow);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hero-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding-top: 52px;
+            }
+
+            .hero-photo {
+                max-width: 560px;
+                margin: 10px auto 0;
+                width: 100%;
+            }
+
+            .hero-photo img {
+                height: 340px;
+            }
+
+            .feature-grid,
+            .product-grid,
+            .review-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 560px) {
+            section {
+                padding: 58px 0;
+            }
+
+            .feature-grid,
+            .product-grid,
+            .review-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-note {
+                left: 10px;
+            }
+
+            .hero-actions {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .product-card img {
+                height: 235px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav-inner">
+            <a class="logo" href="#beranda">BAKSO<span>NDIN.</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-expanded="false">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#keunggulan">Keunggulan</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#testimoni">Testimoni</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <a class="nav-cta" href="#kontak">Pesan Sekarang</a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="beranda">
+            <div class="container hero-grid">
+                <div>
+                    <div class="eyebrow">Bakso hangat, rasa istimewa</div>
+                    <h1>Satu Mangkuk,<br><span>Sejuta Kenikmatan.</span></h1>
+                    <p>Nikmati bakso dengan kuah gurih, tekstur kenyal, dan pilihan topping yang bikin setiap suapan
+                        terasa istimewa. Cocok untuk menemani waktu makanmu!</p>
+                    <div class="hero-actions">
+                        <a class="btn" href="#menu">Lihat Menu</a>
+                        <a class="text-link" href="#keunggulan">Kenali keunggulan kami →</a>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrQMiyjYVu38hUt14gJZ-OvN82QQa1ydWSF1vxr5bvEoJDOW401G0PXdM&s=10"
+                        alt="Semangkuk hidangan berkuah hangat">
+                    <div class="photo-note"><strong>Fresh & Lezat</strong>Dibuat untuk bikin nagih!</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="keunggulan">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="eyebrow">Kenapa Bakso Ndin?</div>
+                    <h2>Lezatnya Ada di Setiap Detail</h2>
+                    <p>Kami ingin menghadirkan pengalaman makan bakso yang nikmat, nyaman, dan berkesan.</p>
+                </div>
+                <div class="feature-grid">
+                    <article>
+                </div>
+                <h3>Bahan Pilihan</h3>
+                <p>Mengutamakan bahan berkualitas untuk rasa yang mantap.</p>
+                </article>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUDCPCMNltze66adu0vb5evU0Ir61LWt1D8X6eMs0kwQ&s=10">
+                <article class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Kuah Gurih</h3>
+                    <p>Kuah hangat dengan cita rasa gurih yang cocok dinikmati kapan saja.</p>
+                </article>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS31xAAfzGT49t3o5qTJM0jVGeEFASrltViU7nV3Cyzjw&s=10">
+                <article class="feature-card">
+                    <div class="feature-icon"></div>
+                    <h3>Menu Variatif</h3>
+                    <p>Banyak pilihan bakso dan pelengkap sesuai selera kamu.</p>
+                </article>
+                <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSMMVsy2oXN0KiAe7PnmM-9ztrgso5tByNEZGNKZ-8yw&s=10">
+            </div>
+
+            </div>
+        </section>
+
+        <section id="menu">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="eyebrow">Menu favorit</div>
+                    <h2>Pilih Bakso Kesukaanmu</h2>
+                    <p>Temukan menu yang paling cocok untuk menemani harimu.</p>
+                </div>
+                <div class="product-grid">
+                    <article class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkN0PtHs01NyS8hy0-SoMROVuUpjxAIcj7l5sGzrPDXQ&s=10"
+                            alt="Bakso kuah original">
+                        <div class="product-info">
+                            <h3>Bakso Original</h3>
+                            <p>Bakso klasik dengan kuah gurih dan pelengkap sederhana.</p>
+                            <div class="product-bottom"><span class="price">Rp12.000</span><a
+                                    class="btn small-btn order-btn" href="#kontak"
+                                    data-product="Bakso Original">Pesan</a></div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRn-JU1sm_ESWjUwAqyZUNSlNdy6tLsHnbvWFV_MSRZg&s=10q=85"
+                            alt="Bakso dengan mi dan sayuran">
+                        <div class="product-info">
+                            <h3>Bakso Komplit</h3>
+                            <p>Bakso dengan mi, sayuran, dan pelengkap yang lebih lengkap.</p>
+                            <div class="product-bottom"><span class="price">Rp20.000</span><a
+                                    class="btn small-btn order-btn" href="#kontak"
+                                    data-product="Bakso Komplit">Pesan</a></div>
+                        </div>
+                    </article>
+                    <article class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTem90M5A3UT-E82CbQTMiKaE9iSvsQMCHixRrjaY7EIA&s=10"
+                            alt="Hidangan bakso pedas">
+                        <div class="product-info">
+                            <h3>Bakso Pedas</h3>
+                            <p>Untuk pencinta rasa pedas dengan sensasi yang lebih berani.</p>
+                            <div class="product-bottom"><span class="price">Rp18.000</span><a
+                                    class="btn small-btn order-btn" href="#kontak" data-product="Bakso Pedas">Pesan</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    </article>
+                    <article class="product-card">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRr7ljRkdk7nb3QN8NGcCIUCsNS9JtyMnRpf6EAZbQbTw&s=10"
+                            alt="hidangan bakso ubur-ubur">
+                        <div class="produk-info">
+                            <h3> bakso enoki</h3>
+                            <p> bakso dengan perpaduan jamur enoki gurh dan lezat</p>
+                            <div class="product-bottom"><span class="price">Rp.20.000</span> <a
+                                    class="btn small-btn-order-btn" href="kontak" data-product="bakso enoki">pesan</a>
+                    </article>
+                </div>
+                <p style="text-align:center;color:#756b63;font-size:.85rem;margin-top:20px">*Harga dan foto menu
+                    merupakan contoh. Silakan sesuaikan dengan produk asli.</p>
+            </div>
+        </section>
+
+        <section class="testimonials" id="testimoni">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="eyebrow">Kata mereka dari</div>
+                    <h2>Pecinta Bakso</h2>
+                    <p>Contoh tampilan testimoni pelanggan yang bisa diganti dengan ulasan asli.</p>
+                </div>
+                <div class="review-grid">
+                    <article class="review">
+                        <div class="stars">★★★★★</div>
+                        <p>“Kuahnya gurih dan baksonya enak. Paling cocok dimakan saat masih hangat!”</p><strong>—
+                            Pelanggan 1</strong>
+                    </article>
+                    <article class="review">
+                        <div class="stars">★★★★★</div>
+                        <p>“Porsinya pas dan pilihan menunya menarik. Bakso komplit jadi favoritku.”</p><strong>—
+                            Pelanggan 2</strong>
+                    </article>
+                    <article class="review">
+                        <div class="stars">★★★★★</div>
+                        <p>“Rasanya mantap, apalagi kalau ditambah sambal. Ingin pesan lagi!”</p><strong>— Pelanggan
+                            3</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="kontak">
+            <div class="container contact-grid">
+                <div>
+                    <div class="eyebrow" style="color:#f3bd68">Yuk, pesan sekarang</div>
+                    <h2>Bakso mantap Menantimu!</h2>
+                    <p>Ikuti media sosial kami untuk melihat informasi menu dan pemesanan terbaru.</p>
+                    <div class="contact-links">
+                        <a href="https://www.instagram.com/ndin.ka24/" target="_blank"
+                            rel="noopener noreferrer">Instagram: @ndin.ka24 ↗</a>
+                        <a href="https://www.tiktok.com/@tiang_sepele18" target="_blank"
+                            rel="noopener noreferrer">TikTok: @tiang_sepele18 ↗</a>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.4731496506256!2d112.07186507471685!3d-8.154991181693134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78e8f50f476d23%3A0x50da66f882303771!2sMAN%203%20Tulungagung!5e0!3m2!1sid!2sid!4v1794985671290!5m2!1sid!2sid"
+                            width="300" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                    </div>
+                </div>
+                <div class="contact-box">
+                    <h3>Hubungi Penjual</h3>
+                    <p>Untuk pemesanan, silakan kirim pesan melalui Instagram atau TikTok kami. Informasi nomor WhatsApp
+                        dan alamat toko dapat ditambahkan di bagian ini.</p>
+                    <a class="btn" href="https://www.instagram.com/ndin.ka24/" target="_blank"
+                        rel="noopener noreferrer">Hubungi via Instagram dan tiktok</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">© <span id="year"></span> Bakso Ndin. Dibuat dengan sepenuh rasa ❤️</div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuToggle.textContent = isOpen ? '✕' : '☰';
+        });
+
+        document.querySelectorAll('#navLinks a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuToggle.textContent = '☰';
+            });
+        });
+
+        document.querySelectorAll('.order-btn').forEach((button) => {
+            button.addEventListener('click', () => {
+                const product = button.dataset.product;
+                const message = `Halo, saya ingin bertanya dan memesan ${product} dari Bakso Ndin.`;
+                // Salin pesan agar mudah ditempel saat menghubungi penjual.
+                if (navigator.clipboard && window.isSecureContext) {
+                    navigator.clipboard.writeText(message).then(() => {
+                        alert(`Pesan untuk ${product} berhasil disalin. Silakan hubungi penjual melalui Instagram.`);
+                    }).catch(() => {
+                        alert(`Silakan hubungi Instagram @ndin.ka24 untuk memesan ${product}.`);
+                    });
+                } else {
+                    alert(`Silakan hubungi Instagram @ndin.ka24 untuk memesan ${product}.`);
+                }
+            });
+        });
+
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
+'''
+path = Path("/mnt/data/landing_page_bakso_ndin.html")
+path.write_text(html, encoding="utf-8")
+print(f"Berhasil membuat: {path}")
